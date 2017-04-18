@@ -1,13 +1,12 @@
 {
-  "name": "empty-project",
-  "version": "1.0.0",
-  "description": "empty-project description",
+  "name": "shruggy",
+  "version": "3.0.0",
+  "description": "Private bot for Discord.",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js --exec babel-node",
-    "prod_windows": "set NODE_ENV=production && node server.js --exec babel-node",
-    "prod_linux": "NODE_ENV=production node server.js --exec babel-node",
-    "test": "./node_modules/.bin/jest test/**/*.test.js --coverage --forceExit",
+		"start": "babel-node server.js",
+    "test": "./node_modules/.bin/jest test/**/*.test.js --forceExit",
     "lint": "./node_modules/.bin/eslint */**.js"
   },
   "author": "ewauq",
