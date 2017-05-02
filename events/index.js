@@ -17,7 +17,7 @@ export default class Events {
       // Appel de tous les fichiers contenu dans /events.
         files.forEach((file) => {
           if (file === 'index.js') return;
-          require(`./${file}`)(this.bot);
+          require(`../events/${file}`)(this.bot);
         });
 
         resolve('success');
