@@ -1,0 +1,5 @@
+{
+  "name": "avatar",
+  "description": "**${command_prefix}avatar** Affiche l'avatar de l'utilisateur mentionné. Attention les yeux !",
+  "triggers": ["avatar", "picture", "pic"]
+}
