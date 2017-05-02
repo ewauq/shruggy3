@@ -1,0 +1,8 @@
+{
+  "name": "ping",
+  "description": "**${command_prefix}ping** Répond au ping par pong, c'est assez surprenant.",
+  "triggers": ["ping"],
+  "replies":[
+    "Pong"
+  ]
+}
