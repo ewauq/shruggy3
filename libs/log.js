@@ -6,33 +6,38 @@ export default class Log {
     this.env = env;
   }
 
-  info(message) {
-    console.info('[INFO]', message); // eslint-disable-line no-console
+  info(...messages) {
+    messages.forEach((message) => {
+      console.error('[INFO]', message); // eslint-disable-line no-console
+    });
   }
 
-  error(message) {
-    console.error('[ERROR]', colors.red(message)); // eslint-disable-line no-console
+  error(...messages) {
+    messages.forEach((message) => {
+      console.error('[ERROR]', colors.red(message)); // eslint-disable-line no-console
+    });
   }
 
-  warn(message) {
-    console.log('[WARN]', colors.yellow(message)); // eslint-disable-line no-console
+  warn(...messages) {
+    messages.forEach((message) => {
+      console.error('[WARNING]', colors.yellow(message)); // eslint-disable-line no-console
+    });
   }
 
   // Environnement de dev uniquement
 
-  verbose(message) {
+  verbose(...messages) {
     if (this.env) return;
-    console.log('[VERBOSE]', colors.grey(message)); // eslint-disable-line no-console
+    messages.forEach((message) => {
+      console.error('[VERBOSE]', colors.grey(message)); // eslint-disable-line no-console
+    });
   }
 
-  debug(message) {
+  debug(...messages) {
     if (this.env) return;
-    console.log('[DEBUG]', colors.grey(message)); // eslint-disable-line no-console
+    messages.forEach((message) => {
+      console.error('[DEBUG]', colors.grey(message)); // eslint-disable-line no-console
+    });
   }
 
 }
-
-
-// log.error({
-//   message: `balbablabalba ${truc}`,
-// });
