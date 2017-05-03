@@ -7,21 +7,25 @@ export default class Events {
 
   load() {
     return new Promise((resolve, reject) => {
-    // Récupération des fichiers de /events.
-      fs.readdir('./events', (err, files) => {
-        if (err) {
-          reject(err);
-          return;
-        }
+      try {
+        // Récupération des fichiers de /events.
+        fs.readdir('./events', (err, files) => {
+          if (err) {
+            reject(err);
+            return;
+          }
 
-      // Appel de tous les fichiers contenu dans /events.
-        files.forEach((file) => {
-          if (file === 'index.js') return;
-          require(`../events/${file}`)(this.bot);
+          // Appel de tous les fichiers contenu dans /events.
+          files.forEach((file) => {
+            if (file === 'index.js') return;
+            require(`../events/${file}`)(this.bot);
+          });
+
+          resolve('success');
         });
-
-        resolve('success');
-      });
+      } catch (error) {
+        reject(error);
+      }
     });
   }
 
