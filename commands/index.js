@@ -1,3 +1,7 @@
+import Log from '../libs/log';
+
+const log = new Log();
+
 export default class BaseCommand {
 
   constructor(name) {
@@ -9,7 +13,18 @@ export default class BaseCommand {
   }
 
   getProperties() {
-    return require(`../commands/${this.name}/properties.json`);
+    let properties;
+
+    try {
+      properties = require(`../commands/${this.name}/properties.json`);
+    } catch (error) {
+      log.error(
+        `La récupération des propriétés de <${this.name}> a provoqué une erreur :`,
+         `    ${error}`,
+      );
+    }
+
+    return properties;
   }
 
   getReply(replies) {
