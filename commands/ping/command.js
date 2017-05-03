@@ -1,4 +1,3 @@
-import config from '../../config.json';
 import BaseCommand from '../';
 
 class Command extends BaseCommand {
