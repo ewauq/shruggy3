@@ -20,7 +20,7 @@ module.exports = function (bot) {
       // On met tout en minuscule pour éviter les problèmes de casse.
       const input = message.content.toLowerCase();
 
-      // Récupération de la commande et de son argument.
+      // Récupération de la commande.
       const trigger = input.match(/\/([0-9a-z]+)/)[1];
 
       log.verbose(`Commande <${trigger}> demandée...`);
@@ -54,13 +54,19 @@ module.exports = function (bot) {
               message.reply(reply);
             })
             .catch((error) => {
-              log.error(`L'execution de la commande a provoqué une erreur : ${error}`);
+              log.error(
+                'L\'execution de la commande a provoqué une erreur :',
+                `   ${error}`,
+              );
             });
         } else {
           log.verbose(`Aucune commande trouvée pour ${trigger}.`);
         }
       } catch (error) {
-        log.error(`La lecture des propriétés de la commande a provoqué une erreur : ${error}`);
+        log.error(
+          'La lecture des propriétés de la commande a provoqué une erreur :',
+          `   ${error}`,
+        );
       }
     }
   });
