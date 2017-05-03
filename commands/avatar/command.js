@@ -1,4 +1,3 @@
-import config from '../../config.json';
 import BaseCommand from '../';
 
 class Command extends BaseCommand {
@@ -13,7 +12,13 @@ class Command extends BaseCommand {
   execute(message) {
     return new Promise((resolve, reject) => {
       try {
-        this.output = message.author.avatarURL;
+        if (message.mentions.users.size > 0) {
+          console.log(message.mentions.users);
+
+          this.output = message.mentions.users.first().avatarURL;
+        } else {
+          this.output = message.author.avatarURL;
+        }
       } catch (error) {
         reject(error);
       }
