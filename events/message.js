@@ -21,7 +21,8 @@ module.exports = function (bot) {
       const input = message.content.toLowerCase();
 
       // Récupération de la commande.
-      const trigger = input.match(/\/([0-9a-z]+)/)[1];
+      const reg = new RegExp(`${config.command_prefix}([0-9a-z]+)`);
+      const trigger = input.match(reg)[1];
 
       log.verbose(`Commande <${trigger}> demandée...`);
 
