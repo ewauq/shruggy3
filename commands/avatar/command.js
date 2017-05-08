@@ -7,15 +7,16 @@ class Command extends BaseCommand {
     this.name = this.getProperties().name;
     this.description = this.getProperties().description;
     this.triggers = this.getProperties().triggers;
+    this.errors = this.getProperties().errors;
   }
 
   execute(message) {
     return new Promise((resolve, reject) => {
       try {
-        if (message.mentions.users.size > 0) {
-          console.log(message.mentions.users);
-
+        if (message.mentions.users.size === 1) {
           this.output = message.mentions.users.first().avatarURL;
+        } else if (message.mentions.users.size > 1) {
+          this.output = this.getReply(this.errors);
         } else {
           this.output = message.author.avatarURL;
         }
