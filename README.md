@@ -7,3 +7,6 @@ Bot Discord utilisant le module `discord.js`.
 * Installez les packages Node avec `npm install`.
 * Ajoutez le token dans le fichier `config.dist.json` et renommez-le en `config.json`.
 * Lancez le bot avec `npm start` (Windows) ou `npm run unix` (Linux & Mac).
+
+### Documentation
+* https://yorkaargh.gitbooks.io/discord-js-bot-guide/content/adding-a-configjson-file.html
