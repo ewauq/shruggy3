@@ -1,5 +1,10 @@
 {
   "name": "avatar",
   "description": "**${command_prefix}avatar** Affiche l'avatar de l'utilisateur mentionné. Attention les yeux !",
-  "triggers": ["avatar", "picture", "pic"]
+  "triggers": ["avatar", "picture", "pic"],
+  "errors": [
+    "Un seul utilisateur à la fois s'il te plait l'ami.",
+    "Je ne prends qu'un seul pseudo à la fois.",
+    "Allons-y doucement, donne-moi un seul utilisateur à la fois."
+  ]
 }
