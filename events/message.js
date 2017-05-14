@@ -8,6 +8,9 @@ module.exports = function (bot) {
   bot.on('message', (message) => {
     console.log('[MESSAGE]', message.content); // eslint-disable-line no-console
 
+    // Timer pour évaluer le temps d'éxécution d'une action.
+    const timerStart = Date.now();
+
     /**
      *
      * Gestion des commandes.
@@ -52,7 +55,8 @@ module.exports = function (bot) {
         if (command) {
           command.execute(message)
             .then((reply) => {
-              message.reply(reply);
+              message.reply(reply)
+                .then(log.verbose(`Commande exécutée en ${Date.now() - timerStart}ms.`));
             })
             .catch((error) => {
               log.error(
@@ -65,7 +69,7 @@ module.exports = function (bot) {
         }
       } catch (error) {
         log.error(
-          'La lecture des propriétés de la commande a provoqué une erreur :',
+          'L\'appel de la commande a provoqué une erreur :',
           `   ${error}`,
         );
       }
