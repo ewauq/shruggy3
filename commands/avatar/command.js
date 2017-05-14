@@ -4,9 +4,6 @@ class Command extends BaseCommand {
 
   constructor() {
     super('avatar');
-    this.name = this.getProperties().name;
-    this.description = this.getProperties().description;
-    this.triggers = this.getProperties().triggers;
     this.errors = this.getProperties().errors;
   }
 
@@ -14,16 +11,16 @@ class Command extends BaseCommand {
     return new Promise((resolve, reject) => {
       try {
         if (message.mentions.users.size === 1) {
-          this.output = message.mentions.users.first().avatarURL;
+          this.reply = message.mentions.users.first().avatarURL;
         } else if (message.mentions.users.size > 1) {
-          this.output = this.getReply(this.errors);
+          this.reply = this.getReply(this.errors);
         } else {
-          this.output = message.author.avatarURL;
+          this.reply = message.author.avatarURL;
         }
       } catch (error) {
         reject(error);
       }
-      resolve(this.output);
+      resolve(this.reply);
     });
   }
 
