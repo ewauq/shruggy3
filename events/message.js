@@ -66,6 +66,7 @@ module.exports = function (bot) {
             });
         } else {
           log.verbose(`Aucune commande trouvée pour ${trigger}.`);
+          message.reply('commande inconnue.');
         }
       } catch (error) {
         log.error(
