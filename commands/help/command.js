@@ -24,13 +24,13 @@ class Command extends BaseCommand {
         files.forEach((file) => {
           const properties = require(`${__dirname}/../${file}/properties.json`);
           if (properties.description) {
-            descriptions += `- **${config.command_prefix}${properties.triggers}** ${properties.description}\n`;
+            descriptions += `- **${config.command_prefix}${properties.triggers}** `;
+            descriptions += `${properties.description}\n`;
           }
         });
 
         // Création de la réponse.
         const reply = `${this.getReply(this.replies)}\n\n${descriptions}`;
-
         this.reply = reply;
       } catch (error) {
         reject(error);
