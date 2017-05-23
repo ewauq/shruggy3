@@ -3,20 +3,7 @@
   "description": "Liste toutes les commandes disponibles.",
   "triggers": ["help", "aide"],
   "replies":[
-    "Voici les commandes que je connais :",
-    "Voici les commandes disponibles :",
-    "Voici les commande que tu peux utiliser :",
-
-    "Voici toutes les commandes que je connais :",
-    "Voici toutes les commandes disponibles :",
-    "Voici toutes les commandes que tu peux utiliser :",
-
-    "Voici la liste des commandes que je connais :",
-    "Voici la liste des commandes disponibles :",
-    "Voici la liste des commandes que tu peux utiliser :",
-
-    "Voici la liste de toutes les commandes que je connais :",
-    "Voici la liste de toutes les commandes disponibles :",
-    "Voici la liste de toutes les commandes que tu peux utiliser :"
+    "(Voici|Voilà) la liste (des|de toutes les) commandes (que je connais|disponibles|que tu peux utiliser) :",
+    "(Voici|Voilà) (toutes les|les) commandes (que je connais|disponibles|que tu peux utiliser) :"
   ]
 }
