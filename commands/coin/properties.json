@@ -1,0 +1,12 @@
+{
+  "name": "coin",
+  "description": "Lance une pièce et compare le résultat avec la commande envoyée.",
+  "triggers": [
+    "pile", 
+    "face"
+  ],
+  "replies":[
+    "Je lance une pièce... **PILE**",
+    "Je lance une pièce... **FACE**"
+  ]
+}
