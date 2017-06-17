@@ -1,0 +1,10 @@
+{
+  "name": "aww",
+  "description": "Affiche le topic le plus populaire de /r/aww de ces dernières 24h.",
+  "triggers": [
+    "aww"
+  ],
+  "replies":[
+    "Meilleure photo de /r/aww de ces dernières 24h :"
+  ]
+}
