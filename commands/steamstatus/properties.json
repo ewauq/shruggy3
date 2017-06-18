@@ -1,0 +1,20 @@
+{
+  "name": "steamstatus",
+  "description": "Affiche le statut du magasin Steam.",
+  "triggers": [
+    "steam",
+    "steamstore",
+    "steamstatus"
+  ],
+  "replies": {
+    "online": [
+      "Le magasin Steam est en ligne"
+    ],
+    "offline": [
+      "Le magasin Steam est hors ligne."
+    ],
+    "error": [
+      "J'ai rencontré une erreur"
+    ]
+  }
+}
