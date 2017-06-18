@@ -52,7 +52,7 @@ export default class BaseCommand {
    *
    * @memberof BaseCommand
    */
-  getReply(replies) {
+  getReply(replies, data = false) {
     const final_reply = [];
     const reply = replies[random(0, replies.length)];
     const parts = reply.split(/(\(.+?\))/g);
@@ -67,6 +67,13 @@ export default class BaseCommand {
         final_reply.push(part);
       }
     });
+
+    // On gère les données à remplacer dans la réponse.
+    if (data) {
+      return final_reply
+              .join('')
+              .replace(/\{([a-z]+)\}/g, ($1, $2) => { return data[$2]; });
+    }
 
     return final_reply.join('');
   }
