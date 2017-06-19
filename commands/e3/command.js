@@ -7,6 +7,7 @@ class Command extends BaseCommand {
 
   constructor() {
     super('e3');
+    this.reply_type = this.getProperties().reply_type;
     this.replies = this.getProperties().replies;
     this.date = this.getProperties().date;
   }
@@ -26,7 +27,10 @@ class Command extends BaseCommand {
       } catch (error) {
         reject(error);
       }
-      resolve(this.reply);
+      resolve({
+        reply: this.reply,
+        type: this.reply_type,
+      });
     });
   }
 

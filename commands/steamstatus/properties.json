@@ -1,6 +1,7 @@
 {
   "name": "steamstatus",
   "description": "Affiche le statut du magasin Steam.",
+  "reply_type": "public",
   "triggers": [
     "steam",
     "steamstore",

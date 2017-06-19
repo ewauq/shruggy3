@@ -1,6 +1,7 @@
 {
   "name": "ping",
   "description": "Répond au ping par pong, c'est assez surprenant.",
+  "reply_mention": "mention",
   "triggers": ["ping"],
   "replies":[
     "Pong",

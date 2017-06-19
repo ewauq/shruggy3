@@ -4,6 +4,7 @@ class Command extends BaseCommand {
 
   constructor() {
     super('coin');
+    this.reply_type = this.getProperties().reply_type;
     this.replies = this.getProperties().replies;
   }
 
@@ -18,7 +19,10 @@ class Command extends BaseCommand {
       } catch (error) {
         reject(error);
       }
-      resolve(this.reply);
+      resolve({
+        reply: this.reply,
+        type: this.reply_type,
+      });
     });
   }
 

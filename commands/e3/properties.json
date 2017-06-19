@@ -1,6 +1,7 @@
 {
   "name": "e3",
   "description": "Retourne la date du prochain E3.",
+  "reply_type": "public",
   "triggers": ["e3"],
   "replies":[
     ":calendar_spiral: Le prochain E3 aura lieu le **{date}**, soit encore **{days}** dodos."

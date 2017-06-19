@@ -1,6 +1,7 @@
 {
   "name": "avatar",
   "description": "Affiche l'avatar de l'utilisateur mentionné. Attention les yeux !",
+  "reply_type": "mention",
   "triggers": ["avatar", "picture", "pic"],
   "errors": [
     "Un seul utilisateur à la fois s'il te plait l'ami.",

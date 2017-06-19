@@ -1,6 +1,7 @@
 {
   "name": "help",
-  "description": "Liste toutes les commandes disponibles.",
+  "description": "Envoie la liste toutes les commandes disponibles en message privé.",
+  "reply_type": "private",
   "triggers": ["help", "aide"],
   "replies":[
     "(Voici|Voilà) la liste (des|de toutes les) commandes (que je connais|disponibles|que tu peux utiliser) :",

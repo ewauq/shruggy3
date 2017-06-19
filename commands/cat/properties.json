@@ -1,6 +1,7 @@
 {
   "name": "cat",
   "description": "Offre une magnifique photo de chat.",
+  "reply_type": "public",
   "triggers": [
     "cat",
     "chat"

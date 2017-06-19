@@ -1,6 +1,7 @@
 {
   "name": "coin",
   "description": "Lance une pièce et compare le résultat avec la commande envoyée.",
+  "reply_type": "mention",
   "triggers": [
     "pile", 
     "face"

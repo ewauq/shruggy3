@@ -1,10 +1,11 @@
 {
   "name": "aww",
   "description": "Affiche le topic le plus populaire de /r/aww de ces dernières 24h.",
+  "reply_type": "public",
   "triggers": [
     "aww"
   ],
   "replies":[
-    "Meilleure post de /r/aww de ces dernières 24h :"
+    "Meilleur post de /r/aww de ces dernières 24h [{score} votes] : {url}"
   ]
 }

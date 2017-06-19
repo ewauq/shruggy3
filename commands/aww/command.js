@@ -6,6 +6,7 @@ class Command extends BaseCommand {
 
   constructor() {
     super('aww');
+    this.reply_type = this.getProperties().reply_type;
     this.replies = this.getProperties().replies;
   }
 
@@ -23,7 +24,10 @@ class Command extends BaseCommand {
               url: json.data.children[0].data.url,
             };
 
-            resolve(`${this.getReply(this.replies)} ${topic.url}`);
+            resolve({
+              reply: this.getReply(this.replies, topic),
+              type: this.reply_type,
+            });
           })
           .catch((error) => {
             reject(error);

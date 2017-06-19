@@ -54,9 +54,24 @@ module.exports = function (bot) {
         // Si la commande a été trouvée, on l'exécute.
         if (command) {
           command.execute(message)
-            .then((reply) => {
-              message.reply(reply)
-                .then(log.verbose(`Commande exécutée en ${Date.now() - timerStart}ms.`));
+            .then((response) => {
+              switch (response.type) {
+                case 'mention':
+                  message.reply(response.reply)
+                    .then(log.verbose(`Commande exécutée en ${Date.now() - timerStart}ms.`));
+                  break;
+                case 'private':
+                  message.author.send(response.reply)
+                    .then(log.verbose(`Commande exécutée en ${Date.now() - timerStart}ms.`));
+                  break;
+                case 'public':
+                  message.channel.send(response.reply)
+                    .then(log.verbose(`Commande exécutée en ${Date.now() - timerStart}ms.`));
+                  break;
+                default:
+                  message.channel.send(response.reply)
+                    .then(log.verbose(`Commande exécutée en ${Date.now() - timerStart}ms.`));
+              }
             })
             .catch((error) => {
               log.error(
@@ -66,7 +81,7 @@ module.exports = function (bot) {
             });
         } else {
           log.verbose(`Aucune commande trouvée pour ${trigger}.`);
-          message.reply('commande inconnue.');
+          message.reply('je ne connais pas cette commande. Utilises **!help** pour recevoir en MP la liste des commandes.');
         }
       } catch (error) {
         log.error(

@@ -4,6 +4,7 @@ class Command extends BaseCommand {
 
   constructor() {
     super('avatar');
+    this.reply_type = this.getProperties().reply_type;
     this.errors = this.getProperties().errors;
   }
 
@@ -20,7 +21,10 @@ class Command extends BaseCommand {
       } catch (error) {
         reject(error);
       }
-      resolve(this.reply);
+      resolve({
+        reply: this.reply,
+        type: this.reply_type,
+      });
     });
   }
 

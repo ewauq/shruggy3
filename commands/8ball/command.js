@@ -5,6 +5,7 @@ class Command extends BaseCommand {
 
   constructor() {
     super('8ball');
+    this.reply_type = this.getProperties().reply_type;
     this.replies = this.getProperties().replies;
     this.errors = this.getProperties().errors;
   }
@@ -24,7 +25,7 @@ class Command extends BaseCommand {
         if (matches && matches.length > 0) {
           // On met la première lettre de la question en majuscule (pour le style).
           const question = `${matches[1].charAt(0).toUpperCase()}${matches[1].slice(1)}`;
-          final_reply = `${question} : **${this.getReply(this.replies)}**`;
+          final_reply = this.getReply(this.replies);
         } else {
           final_reply = this.getReply(this.errors);
         }
@@ -33,7 +34,10 @@ class Command extends BaseCommand {
       } catch (error) {
         reject(error);
       }
-      resolve(this.reply);
+      resolve({
+        reply: this.reply,
+        type: this.reply_type,
+      });
     });
   }
 
