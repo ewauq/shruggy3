@@ -20,5 +20,6 @@ Promise.all([
 .catch((err) => {
   log.error(err.message);
   log.verbose(err);
+  process.exit(1);
 });
 
