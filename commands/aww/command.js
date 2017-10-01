@@ -1,4 +1,5 @@
 import request from 'request-promise';
+import Discord from 'discord.js';
 import BaseCommand from '../';
 
 
@@ -13,19 +14,22 @@ class Command extends BaseCommand {
   execute() {
     return new Promise((resolve, reject) => {
       try {
-        request('https://www.reddit.com/r/aww/top.json?t=day&limit=1')
+        request('https://www.reddit.com/r/aww/hot.json?t=day&limit=5')
           .then((response) => {
             const json = JSON.parse(response);
+            let post;
 
-            const topic = {
-              title: json.data.children[0].data.title,
-              score: json.data.children[0].data.score,
-              permalink: json.data.children[0].data.permalink,
-              url: json.data.children[0].data.url,
-            };
+            // On récupère uniquement le premier topic non épinglé
+            // pour éviter les annonces
+            for (let i = 0; i < json.data.children.length; i++) {
+              if (!json.data.children[i].data.stickied) {
+                post = json.data.children[i].data;
+                break;
+              }
+            }
 
             resolve({
-              reply: this.getReply(this.replies, topic),
+              reply: this.getReply(this.replies, post),
               type: this.reply_type,
             });
           })

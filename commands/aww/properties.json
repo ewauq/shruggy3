@@ -6,6 +6,6 @@
     "aww"
   ],
   "replies":[
-    "Meilleur post de /r/aww de ces dernières 24h [{score} votes] : {url}"
+    "Meilleur post actuel de /r/aww - {score} votes : {url}"
   ]
 }
