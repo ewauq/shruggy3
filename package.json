@@ -11,22 +11,20 @@
   },
   "author": "ewauq",
   "devDependencies": {
-    "babel-core": "^6.24.1",
-    "babel-eslint": "^7.2.2",
-    "babel-preset-env": "^1.4.0",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb": "14.1.0",
-    "eslint-plugin-babel": "^4.1.1",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3"
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-import": "^2.7.0"
   },
   "dependencies": {
-    "babel-cli": "^6.24.1",
+    "babel-cli": "^6.26.0",
     "colors": "^1.1.2",
-    "date-and-time": "^0.4.2",
-    "discord.js": "^11.1.0",
-    "request": "^2.81.0",
-    "request-promise": "^4.2.1"
+    "date-and-time": "^0.5.0",
+    "discord.js": "^11.2.1",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
   }
 }
