@@ -6,7 +6,13 @@ const log = new Log(process.env.NODE_ENV);
 
 module.exports = function (bot) {
   bot.on('message', (message) => {
-    console.log('[MESSAGE]', message.content); // eslint-disable-line no-console
+
+    if(message.attachments.array().length) {
+      console.log('[MESSAGE]', `<${message.attachments.first().filename}>`); // eslint-disable-line no-console
+    }
+    else {
+      console.log('[MESSAGE]', message.content); // eslint-disable-line no-console
+    }
 
     // Timer pour évaluer le temps d'éxécution d'une action.
     const timerStart = Date.now();
@@ -18,8 +24,7 @@ module.exports = function (bot) {
      */
 
     // Si le message est une commande qui n'est pas envoyée par le bot.
-    if (message.content.startsWith(config.command_prefix)
-        && !message.author.bot) {
+    if (message.content.startsWith(config.command_prefix) && !message.author.bot) {
       // On met tout en minuscule pour éviter les problèmes de casse.
       const input = message.content.toLowerCase();
 
