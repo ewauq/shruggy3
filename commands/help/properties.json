@@ -2,9 +2,13 @@
   "name": "help",
   "description": "Envoie la liste toutes les commandes disponibles en message privé.",
   "reply_type": "private",
-  "triggers": ["help", "aide"],
+  "triggers": [
+    "help", 
+    "aide"
+  ],
   "replies":[
     "(Voici|Voilà) la liste (des|de toutes les) commandes (que je connais|disponibles|que tu peux utiliser) :",
     "(Voici|Voilà) (toutes les|les) commandes (que je connais|disponibles|que tu peux utiliser) :"
   ]
+  
 }

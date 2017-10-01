@@ -11,7 +11,7 @@ class Command extends BaseCommand {
     this.replies = this.getProperties().replies;
   }
 
-  execute() {
+  execute(message) {
     return new Promise((resolve, reject) => {
       try {
         // Récupération de toutes les descriptions des commandes.
@@ -36,6 +36,9 @@ class Command extends BaseCommand {
       } catch (error) {
         reject(error);
       }
+
+      message.reply("je t'envoie les commandes en message privé.");
+
       resolve({
         reply: this.reply,
         type: this.reply_type,
