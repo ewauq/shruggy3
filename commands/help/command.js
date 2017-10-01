@@ -9,9 +9,10 @@ class Command extends BaseCommand {
     this.reply_type = this.getProperties().reply_type;
     this.description = this.getProperties().description;
     this.replies = this.getProperties().replies;
+    this.autoreplies = this.getProperties().autoreplies;
   }
 
-  execute() {
+  execute(message) {
     return new Promise((resolve, reject) => {
       try {
         // Récupération de toutes les descriptions des commandes.
@@ -36,6 +37,9 @@ class Command extends BaseCommand {
       } catch (error) {
         reject(error);
       }
+
+      message.reply(this.getReply(this.autoreplies));
+
       resolve({
         reply: this.reply,
         type: this.reply_type,
