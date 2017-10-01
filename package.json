@@ -26,7 +26,6 @@
     "colors": "^1.1.2",
     "date-and-time": "^0.4.2",
     "discord.js": "^11.1.0",
-    "ical": "^0.5.0",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
   }

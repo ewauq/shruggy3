@@ -23,6 +23,8 @@ class Command extends BaseCommand {
         const matches = input.match(reg);
 
         if (matches && matches.length > 0) {
+          // On met la première lettre de la question en majuscule (pour le style).
+          const question = `${matches[1].charAt(0).toUpperCase()}${matches[1].slice(1)}`;
           final_reply = this.getReply(this.replies);
         } else {
           final_reply = this.getReply(this.errors);
